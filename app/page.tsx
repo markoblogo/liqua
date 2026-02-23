@@ -8,12 +8,14 @@ import { HeroMedia } from "@/components/hero-media";
 import { MarketValueModel } from "@/components/market-value-model";
 import { MobileStickyCta } from "@/components/mobile-sticky-cta";
 import { NarrativeToggle } from "@/components/narrative-toggle";
+import { PartnersSection } from "@/components/partners-section";
 import { PreContactCta } from "@/components/pre-contact-cta";
 import { Section } from "@/components/section";
 import { ThemedLogo } from "@/components/themed-logo";
 import { TrustStrip } from "@/components/trust-strip";
 import { ValueCard } from "@/components/value-card";
 import { VideoSection } from "@/components/video-section";
+import { ABVX_URL, ASCII_THEME_URL } from "@/lib/constants";
 
 const faqs = [
   {
@@ -243,14 +245,31 @@ export default function Home() {
         >
           <ContactForm />
         </Section>
+
+        <PartnersSection />
       </main>
 
       <footer className="section-divider py-10">
-        <div className="mx-auto flex w-full max-w-8xl flex-col items-start justify-between gap-4 px-6 text-sm text-[var(--muted)] sm:flex-row sm:items-center sm:px-10 lg:px-16">
-          <p>Structured liquidity, not just contacts.</p>
-          <div className="flex items-center gap-5">
-            <a href="/privacy" className="hover:text-[var(--text)]">Privacy</a>
-            <a href="/terms" className="hover:text-[var(--text)]">Terms</a>
+        <div className="mx-auto flex w-full max-w-8xl flex-col gap-4 px-6 text-sm text-[var(--muted)] sm:px-10 lg:px-16">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <p>Structured liquidity, not just contacts.</p>
+            <div className="flex items-center gap-5">
+              <a href="/privacy" className="hover:text-[var(--text)]">Privacy</a>
+              <a href="/terms" className="hover:text-[var(--text)]">Terms</a>
+            </div>
+          </div>
+          <div className="flex flex-col gap-2 border-t border-[var(--border)] pt-4 sm:flex-row sm:items-center sm:justify-between">
+            <p>&copy; {new Date().getFullYear()} Liqua. All rights reserved.</p>
+            <p className="text-xs sm:text-sm">
+              Built by{" "}
+              <a href={ABVX_URL} target="_blank" rel="noreferrer" className="hover:text-[var(--text)]">
+                ABVX
+              </a>{" "}
+              · ASCII mode inspired by{" "}
+              <a href={ASCII_THEME_URL} target="_blank" rel="noreferrer" className="hover:text-[var(--text)]">
+                AsciiTheme
+              </a>
+            </p>
           </div>
         </div>
       </footer>

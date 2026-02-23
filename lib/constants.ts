@@ -32,3 +32,38 @@ export const NAV_ITEMS = [
   { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" }
 ] as const;
+
+type PartnerItem = {
+  name: string;
+  description: string;
+  href: string;
+  status?: string;
+};
+
+export const PARTNERS = [
+  {
+    name: "Spike.brokers",
+    description: "International grain brokerage network",
+    href: "https://spike.broker/"
+  },
+  {
+    name: "Trade Solution",
+    description: "Physical trade and commercial execution partner",
+    href: "https://trade-solution.eu/"
+  },
+  {
+    name: "Cropto (Investor Deck)",
+    description: "Risk layer presentation for partners and investors",
+    href: "https://cropto.abvx.xyz/deck",
+    status: "deck"
+  },
+  {
+    name: "Cropto Test Beta",
+    description: "Working beta product (in development)",
+    href: "https://cropto.abvx.xyz/",
+    status: "beta"
+  }
+] as const satisfies readonly PartnerItem[];
+
+export const ABVX_URL = "https://abvx.xyz/";
+export const ASCII_THEME_URL = "https://github.com/markoblogo/AsciiTheme";
