@@ -79,11 +79,11 @@ export function BeforeAfterToggle() {
           </div>
 
           <div className="mt-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[var(--muted)]">{data.title}</p>
-            <p className="mt-2 text-base font-medium text-[var(--text)]">{data.subtitle}</p>
+            <p className="meta-label">{data.title}</p>
+            <p className="mt-2 text-lg font-medium text-[var(--text)]">{data.subtitle}</p>
             <ul className="mt-4 grid gap-3 sm:grid-cols-2">
               {rows.map((row) => (
-                <li key={row} className="rounded-xl border border-[var(--border)] bg-[var(--surface-soft)] p-4 text-sm text-[var(--muted)]">
+                <li key={row} className="rounded-xl border border-[var(--border)] bg-[var(--surface-soft)] p-4 text-[0.95rem] leading-relaxed text-[var(--muted)]">
                   {row}
                 </li>
               ))}

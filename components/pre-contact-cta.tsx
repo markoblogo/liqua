@@ -3,7 +3,7 @@ export function PreContactCta() {
     <section className="section-divider py-20 sm:py-24">
       <div className="mx-auto w-full max-w-8xl px-6 sm:px-10 lg:px-16">
         <div className="dark-cta-band section-fade" data-ascii-role="card">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/70">
+          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-white/78">
             Partner & Investor Conversations
           </p>
           <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl">
@@ -24,7 +24,7 @@ export function PreContactCta() {
             </a>
           </div>
 
-          <div className="mt-6 space-y-1 text-xs text-white/72">
+          <div className="mt-6 space-y-1 text-sm leading-relaxed text-white/78">
             <p>Early access / partnership conversations only.</p>
             <p>We reply personally.</p>
             <p>No mailing-list spam.</p>

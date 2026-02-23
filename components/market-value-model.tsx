@@ -11,8 +11,8 @@ export function MarketValueModel() {
 
         <div className="grid gap-5 md:grid-cols-3">
           <article className="surface-card section-fade" data-ascii-role="card">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">Farmer</p>
-            <ul className="mt-4 space-y-2 text-sm text-[var(--muted)]">
+            <p className="meta-label">Farmer</p>
+            <ul className="mt-4 space-y-2.5 text-[0.95rem] leading-relaxed text-[var(--muted)]">
               <li>• Loyalty and stable supply</li>
               <li>• Local market context</li>
               <li>• Better selling outcomes through professional support</li>
@@ -20,8 +20,8 @@ export function MarketValueModel() {
           </article>
 
           <article className="surface-card section-fade" data-ascii-role="card">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">Broker</p>
-            <ul className="mt-4 space-y-2 text-sm text-[var(--muted)]">
+            <p className="meta-label">Broker</p>
+            <ul className="mt-4 space-y-2.5 text-[0.95rem] leading-relaxed text-[var(--muted)]">
               <li>• Trust and negotiation</li>
               <li>• Execution intelligence</li>
               <li>• Structured process without operational overload</li>
@@ -29,8 +29,8 @@ export function MarketValueModel() {
           </article>
 
           <article className="surface-card section-fade" data-ascii-role="card">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">Trader</p>
-            <ul className="mt-4 space-y-2 text-sm text-[var(--muted)]">
+            <p className="meta-label">Trader</p>
+            <ul className="mt-4 space-y-2.5 text-[0.95rem] leading-relaxed text-[var(--muted)]">
               <li>• System demand and monetization</li>
               <li>• Scalable procurement access</li>
               <li>• Better timing through market depth signals</li>
@@ -41,7 +41,7 @@ export function MarketValueModel() {
         <p className="mt-8 text-center text-base font-semibold text-[var(--text)]">
           Liqua makes this exchange structured, repeatable, and scalable.
         </p>
-        <p className="mt-2 text-center text-sm text-[var(--muted)]">
+        <p className="mt-2 text-center text-[0.95rem] leading-relaxed text-[var(--muted)]">
           This is not just a marketplace layer - it is an execution infrastructure layer.
         </p>
       </div>

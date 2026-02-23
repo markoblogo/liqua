@@ -66,7 +66,7 @@ export function DealFlow() {
             })}
           </ol>
 
-          <p className="mt-5 rounded-xl border border-[var(--border)] bg-[var(--surface-soft)] p-4 text-sm text-[var(--muted)]">
+          <p className="mt-5 rounded-xl border border-[var(--border)] bg-[var(--surface-soft)] p-4 text-[0.95rem] leading-relaxed text-[var(--muted)]">
             {STEPS.find((step) => step.key === active)?.detail}
           </p>
         </div>

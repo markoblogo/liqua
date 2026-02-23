@@ -60,7 +60,7 @@ export default function Home() {
           <div className="relative mx-auto w-full max-w-8xl px-6 pb-24 pt-20 sm:px-10 sm:pb-28 sm:pt-24 lg:px-16 lg:pb-32 lg:pt-28">
             <div className="grid items-center gap-12 lg:grid-cols-[1fr_320px] lg:gap-16">
               <div className="max-w-3xl text-white section-fade hero-text-pane">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/76">
+                <p className="text-sm font-semibold uppercase tracking-[0.16em] text-white/82">
                   Liquidity & Execution Layer
                 </p>
                 <h1 className="mt-5 text-4xl font-semibold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
@@ -109,7 +109,7 @@ export default function Home() {
               "Execution responsibility is hard to track across counterparties",
               "Depth exists in the market but not in a decision-grade structure"
             ].map((item) => (
-              <div key={item} className="surface-card text-sm text-[var(--muted)] section-fade" data-ascii-role="card">
+              <div key={item} className="surface-card text-[0.96rem] leading-relaxed text-[var(--muted)] section-fade" data-ascii-role="card">
                 {item}
               </div>
             ))}
@@ -123,20 +123,20 @@ export default function Home() {
         >
           <div className="grid gap-6 lg:grid-cols-2">
             <div className="surface-card section-fade" data-ascii-role="card">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">
+              <p className="meta-label">
                 Commercial layer
               </p>
-              <p className="mt-3 text-2xl font-semibold">Relationships, context, and negotiation</p>
-              <p className="mt-4 text-sm leading-relaxed text-[var(--muted)]">
+              <p className="mt-3 card-title">Relationships, context, and negotiation</p>
+              <p className="mt-4 card-copy">
                 Preserve local broker intelligence and trust where market outcomes are decided.
               </p>
             </div>
             <div className="surface-card section-fade" data-ascii-role="card">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">
+              <p className="meta-label">
                 Execution layer
               </p>
-              <p className="mt-3 text-2xl font-semibold">Workflow discipline, controls, and traceability</p>
-              <p className="mt-4 text-sm leading-relaxed text-[var(--muted)]">
+              <p className="mt-3 card-title">Workflow discipline, controls, and traceability</p>
+              <p className="mt-4 card-copy">
                 Standardized milestones and accountability turn fragmented activity into infrastructure.
               </p>
             </div>
@@ -197,10 +197,10 @@ export default function Home() {
               "Milestones, closure, and performance scoring"
             ].map((step, index) => (
               <li key={step} className="surface-card section-fade" data-ascii-role="card">
-                <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[var(--muted)]">
+                <p className="meta-label">
                   Step {index + 1}
                 </p>
-                <p className="mt-2 text-sm font-medium leading-relaxed text-[var(--text)]">{step}</p>
+                <p className="mt-3 text-base font-medium leading-relaxed text-[var(--text)]">{step}</p>
               </li>
             ))}
           </ol>
@@ -217,7 +217,7 @@ export default function Home() {
               "Performance ratings by execution KPI",
               "Dispute handling framework"
             ].map((feature) => (
-              <li key={feature} className="surface-card text-sm text-[var(--muted)] section-fade" data-ascii-role="card">
+              <li key={feature} className="surface-card text-[0.96rem] leading-relaxed text-[var(--muted)] section-fade" data-ascii-role="card">
                 {feature}
               </li>
             ))}
@@ -260,7 +260,7 @@ export default function Home() {
           </div>
           <div className="flex flex-col gap-2 border-t border-[var(--border)] pt-4 sm:flex-row sm:items-center sm:justify-between">
             <p>&copy; {new Date().getFullYear()} Liqua. All rights reserved.</p>
-            <p className="text-xs sm:text-sm">
+            <p className="text-sm">
               Built by{" "}
               <a href={ABVX_URL} target="_blank" rel="noreferrer" className="hover:text-[var(--text)]">
                 ABVX

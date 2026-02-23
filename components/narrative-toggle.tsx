@@ -42,7 +42,7 @@ export function NarrativeToggle() {
           </div>
 
           <h3 className="mt-6 text-xl font-semibold text-[var(--text)]">{data.title}</h3>
-          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">{data.body}</p>
+          <p className="mt-3 max-w-3xl text-[0.96rem] leading-relaxed text-[var(--muted)]">{data.body}</p>
         </div>
       </div>
     </section>

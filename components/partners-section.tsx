@@ -55,7 +55,7 @@ export function PartnersSection() {
       description="Projects and companies connected to the Liqua market infrastructure vision."
     >
       <p className="partner-strip-kicker section-fade">Ecosystem Strip</p>
-      <div className="mt-5 grid gap-4 sm:grid-cols-2">
+      <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {PARTNERS.map((partner) => {
           const status = "status" in partner ? partner.status : undefined;
           const meta = PARTNER_META[partner.name] ?? { action: "Open site", mark: "trade" as const };
@@ -66,23 +66,25 @@ export function PartnersSection() {
             href={partner.href}
             target="_blank"
             rel="noreferrer"
-            className="surface-card partner-tile section-fade group flex min-h-44 flex-col justify-between"
+            className="surface-card partner-tile section-fade group flex min-h-40 flex-col"
             data-ascii-role="card"
             aria-label={`${partner.name} (opens in a new tab)`}
           >
-            <div className="flex items-start justify-between gap-4">
-              <span className={`partner-mark partner-mark-${meta.mark}`}>
+            <div className="flex items-center justify-between gap-2">
+              <div className="flex min-w-0 items-center gap-2.5">
+                <span className={`partner-mark partner-mark-${meta.mark}`}>
                 <PartnerMark variant={meta.mark} />
-              </span>
+                </span>
+                <h3 className="partner-heading truncate">{partner.name}</h3>
+              </div>
               {status ? (
                 <span className="partner-status text-[0.68rem] uppercase tracking-[0.08em]">
                   {status}
                 </span>
               ) : null}
             </div>
-            <h3 className="mt-4 text-lg font-semibold leading-tight text-[var(--text)]">{partner.name}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">{partner.description}</p>
-            <p className="partner-action mt-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">
+            <p className="partner-desc clamp-2">{partner.description}</p>
+            <p className="partner-action mt-auto inline-flex items-center gap-2 font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">
               {meta.action}
               <span
                 className="partner-action-arrow inline-block transition-transform duration-200 group-hover:translate-x-[1px] group-hover:-translate-y-[1px] motion-reduce:transition-none motion-reduce:transform-none"

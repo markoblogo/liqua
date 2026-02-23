@@ -62,7 +62,7 @@ export function ContactForm() {
       <div className="surface-card section-fade" data-ascii-role="card">
         <div className="rounded-xl border border-[var(--border-strong)] bg-[var(--surface-soft)] p-5">
           <p className="text-base font-medium text-[var(--text)]">Request received.</p>
-          <p className="mt-2 text-sm text-[var(--muted)]">
+          <p className="mt-2 text-[0.95rem] leading-relaxed text-[var(--muted)]">
             Thank you. We reply personally to early access and partnership inquiries.
           </p>
           <button
@@ -106,7 +106,7 @@ export function ContactForm() {
             onChange={(value) => setForm((prev) => ({ ...prev, company: value }))}
             required
           />
-          <label className="space-y-1 text-sm font-medium text-[var(--muted)]" htmlFor="role">
+          <label className="space-y-1.5 text-[0.95rem] font-medium text-[var(--text)]" htmlFor="role">
             Role
             <select
               id="role"
@@ -124,7 +124,7 @@ export function ContactForm() {
           </label>
         </div>
 
-        <label className="space-y-1 text-sm font-medium text-[var(--muted)]" htmlFor="message">
+        <label className="space-y-1.5 text-[0.95rem] font-medium text-[var(--text)]" htmlFor="message">
           Message
           <textarea
             id="message"
@@ -167,7 +167,7 @@ export function ContactForm() {
             </p>
           ) : null}
 
-          <div className="text-xs text-[var(--muted)]">
+          <div className="text-sm leading-relaxed text-[var(--muted)]">
             <p><strong>Early access / partnership conversations.</strong></p>
             <p>We reply personally. No mailing list spam.</p>
           </div>
@@ -188,7 +188,7 @@ type InputProps = {
 
 function Input({ id, label, type = "text", value, onChange, required }: InputProps) {
   return (
-    <label className="space-y-1 text-sm font-medium text-[var(--muted)]" htmlFor={id}>
+    <label className="space-y-1.5 text-[0.95rem] font-medium text-[var(--text)]" htmlFor={id}>
       {label}
       <input
         id={id}
