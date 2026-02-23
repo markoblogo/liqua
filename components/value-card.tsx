@@ -8,12 +8,12 @@ type ValueCardProps = {
 
 export function ValueCard({ title, hero, children }: ValueCardProps) {
   return (
-    <article className="rounded-2xl border border-black/15 bg-white p-7 sm:p-8">
-      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-black/60">
+    <article className="surface-card section-fade" data-ascii-role="card">
+      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">
         {title}
       </p>
-      <p className="mt-4 text-xl font-semibold leading-tight text-black">{hero}</p>
-      <div className="mt-6 space-y-3 text-sm leading-relaxed text-black/80">{children}</div>
+      <p className="mt-4 text-xl font-semibold leading-tight text-[var(--text)]">{hero}</p>
+      <div className="mt-6 space-y-3 text-sm leading-relaxed text-[var(--muted)]">{children}</div>
     </article>
   );
 }

@@ -14,7 +14,9 @@ export const HERO_IMAGES = [
   "/hero/Lhero1.svg",
   "/hero/Lhero2.svg",
   "/hero/Lhero3.svg",
-  "/hero/Lhero4.svg"
+  "/hero/Lhero4.svg",
+  "/hero/Lhero5.svg",
+  "/hero/Lhero6.svg"
 ] as const;
 
 export const NAV_ITEMS = [

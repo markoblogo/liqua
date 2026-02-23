@@ -1,11 +1,12 @@
-import Image from "next/image";
 import { ContactForm } from "@/components/contact-form";
 import { DeckSection } from "@/components/deck-section";
 import { FAQItem } from "@/components/faq-item";
 import { Header } from "@/components/header";
 import { HeroMedia } from "@/components/hero-media";
 import { Section } from "@/components/section";
+import { ThemedLogo } from "@/components/themed-logo";
 import { ValueCard } from "@/components/value-card";
+import { VideoSection } from "@/components/video-section";
 import { CONTACT_EMAIL } from "@/lib/constants";
 
 const faqs = [
@@ -33,16 +34,16 @@ const faqs = [
 
 export default function Home() {
   return (
-    <div id="top" className="min-h-screen bg-white text-black">
+    <div id="top" className="min-h-screen bg-[var(--bg)] text-[var(--text)]">
       <Header />
 
       <main>
-        <section className="relative isolate overflow-hidden">
+        <section className="relative isolate overflow-hidden section-divider">
           <HeroMedia />
 
           <div className="relative mx-auto w-full max-w-8xl px-6 pb-24 pt-20 sm:px-10 sm:pb-28 sm:pt-24 lg:px-16 lg:pb-32 lg:pt-28">
             <div className="grid items-center gap-12 lg:grid-cols-[1fr_320px] lg:gap-16">
-              <div className="max-w-3xl text-white">
+              <div className="max-w-3xl text-white section-fade">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/75">
                   Digital Brokerage Platform
                 </p>
@@ -57,30 +58,17 @@ export default function Home() {
                   Brokers stay in relationships. The platform handles execution.
                 </p>
                 <div className="mt-9 flex flex-wrap gap-3">
-                  <a
-                    href="#deck"
-                    className="rounded-full border border-white bg-white px-6 py-2.5 text-sm font-medium text-black transition hover:bg-transparent hover:text-white"
-                  >
+                  <a href="#deck" className="button-primary" data-ascii-role="cta">
                     View deck
                   </a>
-                  <a
-                    href="#contact"
-                    className="rounded-full border border-white px-6 py-2.5 text-sm font-medium text-white transition hover:bg-white hover:text-black"
-                  >
+                  <a href="#contact" className="button-secondary" data-ascii-role="cta-secondary">
                     Request access
                   </a>
                 </div>
               </div>
 
-              <div className="mx-auto flex w-full max-w-72 justify-center rounded-3xl border border-white/30 bg-white/10 p-10 backdrop-blur-[2px] sm:max-w-80">
-                <Image
-                  src="/liqua-logo.png"
-                  alt="Liqua logo icon"
-                  width={240}
-                  height={300}
-                  priority
-                  className="h-auto w-full"
-                />
+              <div className="section-fade mx-auto flex w-full max-w-72 justify-center rounded-3xl border border-white/30 bg-white/10 p-10 backdrop-blur-[2px] sm:max-w-80">
+                <ThemedLogo width={240} height={300} className="h-auto w-full" />
               </div>
             </div>
           </div>
@@ -98,7 +86,7 @@ export default function Home() {
               "Inconsistent execution and procedural control",
               "Low visibility into real market depth"
             ].map((item) => (
-              <div key={item} className="rounded-xl border border-black/15 p-5 text-sm text-black/80">
+              <div key={item} className="surface-card text-sm text-[var(--muted)] section-fade" data-ascii-role="card">
                 {item}
               </div>
             ))}
@@ -111,26 +99,28 @@ export default function Home() {
           description="Liqua separates commercial relationships from operational execution so each role can perform at its best."
         >
           <div className="grid gap-6 lg:grid-cols-2">
-            <div className="rounded-2xl border border-black/15 p-7">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-black/60">
+            <div className="surface-card section-fade" data-ascii-role="card">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">
                 Broker
               </p>
               <p className="mt-3 text-2xl font-semibold">Relationships + trust + strategy</p>
-              <p className="mt-4 text-sm leading-relaxed text-black/75">
+              <p className="mt-4 text-sm leading-relaxed text-[var(--muted)]">
                 Focus on communication, negotiation, and commercial context.
               </p>
             </div>
-            <div className="rounded-2xl border border-black/15 p-7">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-black/60">
+            <div className="surface-card section-fade" data-ascii-role="card">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">
                 Platform
               </p>
               <p className="mt-3 text-2xl font-semibold">Contracting + workflow + control</p>
-              <p className="mt-4 text-sm leading-relaxed text-black/75">
+              <p className="mt-4 text-sm leading-relaxed text-[var(--muted)]">
                 Handle routine execution with standardized process and transparent checkpoints.
               </p>
             </div>
           </div>
         </Section>
+
+        <VideoSection />
 
         <section className="section-divider py-20 sm:py-24">
           <div className="mx-auto w-full max-w-8xl px-6 sm:px-10 lg:px-16">
@@ -181,14 +171,14 @@ export default function Home() {
           title="Organic Value Exchange Triangle"
           description="Farmer loyalty, broker competence, and trader demand are stabilized by a common execution layer."
         >
-          <div className="rounded-2xl border border-black/15 px-6 py-10 sm:px-8">
+          <div className="surface-card section-fade" data-ascii-role="card">
             <div className="mx-auto grid max-w-3xl grid-cols-1 items-center justify-items-center gap-6 sm:grid-cols-3">
               <span className="diagram-node">Farmer</span>
-              <span className="text-sm text-black/50">→</span>
+              <span className="text-sm text-[var(--muted)]">→</span>
               <span className="diagram-node">Broker</span>
-              <span className="hidden text-sm text-black/50 sm:block">↘</span>
+              <span className="hidden text-sm text-[var(--muted)] sm:block">↘</span>
               <span className="diagram-node">Platform</span>
-              <span className="hidden text-sm text-black/50 sm:block">↙</span>
+              <span className="hidden text-sm text-[var(--muted)] sm:block">↙</span>
               <span className="diagram-node">Trader</span>
             </div>
           </div>
@@ -207,11 +197,11 @@ export default function Home() {
               "Deal-room workflow",
               "Execution milestones and performance rating"
             ].map((step, index) => (
-              <li key={step} className="rounded-xl border border-black/15 p-5">
-                <p className="text-xs font-semibold uppercase tracking-[0.15em] text-black/50">
+              <li key={step} className="surface-card section-fade" data-ascii-role="card">
+                <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[var(--muted)]">
                   Step {index + 1}
                 </p>
-                <p className="mt-2 text-sm font-medium leading-relaxed text-black/85">{step}</p>
+                <p className="mt-2 text-sm font-medium leading-relaxed text-[var(--text)]">{step}</p>
               </li>
             ))}
           </ol>
@@ -228,7 +218,7 @@ export default function Home() {
               "Ratings based on execution KPIs",
               "Dispute handling framework"
             ].map((feature) => (
-              <li key={feature} className="rounded-xl border border-black/15 p-5 text-sm text-black/80">
+              <li key={feature} className="surface-card text-sm text-[var(--muted)] section-fade" data-ascii-role="card">
                 {feature}
               </li>
             ))}
@@ -252,17 +242,14 @@ export default function Home() {
         >
           <div className="grid gap-8 lg:grid-cols-[1fr_340px]">
             <ContactForm />
-            <aside className="space-y-4 rounded-2xl border border-black/15 p-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-black/55">
+            <aside className="surface-card section-fade space-y-4" data-ascii-role="card">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">
                 Contact
               </p>
-              <a
-                href={`mailto:${CONTACT_EMAIL}`}
-                className="text-base font-medium text-black underline-offset-2 hover:underline"
-              >
+              <a href={`mailto:${CONTACT_EMAIL}`} className="text-base font-medium text-[var(--text)] underline-offset-2 hover:underline">
                 {CONTACT_EMAIL}
               </a>
-              <p className="text-sm leading-relaxed text-black/70">
+              <p className="text-sm leading-relaxed text-[var(--muted)]">
                 Partnerships, onboarding, and investor requests.
               </p>
             </aside>
@@ -271,15 +258,11 @@ export default function Home() {
       </main>
 
       <footer className="section-divider py-10">
-        <div className="mx-auto flex w-full max-w-8xl flex-col items-start justify-between gap-4 px-6 text-sm text-black/65 sm:flex-row sm:items-center sm:px-10 lg:px-16">
+        <div className="mx-auto flex w-full max-w-8xl flex-col items-start justify-between gap-4 px-6 text-sm text-[var(--muted)] sm:flex-row sm:items-center sm:px-10 lg:px-16">
           <p>© {new Date().getFullYear()} Liqua. All rights reserved.</p>
           <div className="flex items-center gap-5">
-            <a href="#" className="hover:text-black">
-              Privacy
-            </a>
-            <a href="#" className="hover:text-black">
-              Terms
-            </a>
+            <a href="#" className="hover:text-[var(--text)]">Privacy</a>
+            <a href="#" className="hover:text-[var(--text)]">Terms</a>
           </div>
         </div>
       </footer>

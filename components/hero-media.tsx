@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import { HERO_IMAGES, YOUTUBE_VIDEO_ID } from "@/lib/constants";
+import { HERO_IMAGES } from "@/lib/constants";
 
 const MOBILE_QUERY = "(max-width: 767px)";
 const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
@@ -10,7 +10,7 @@ const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
 export function HeroMedia() {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const mobileMedia = window.matchMedia(MOBILE_QUERY);
@@ -19,11 +19,9 @@ export function HeroMedia() {
     const update = () => {
       setIsSmallScreen(mobileMedia.matches);
       setPrefersReducedMotion(reducedMedia.matches);
-      setIsMounted(true);
     };
 
     update();
-
     mobileMedia.addEventListener("change", update);
     reducedMedia.addEventListener("change", update);
 
@@ -33,45 +31,37 @@ export function HeroMedia() {
     };
   }, []);
 
-  const shouldRenderVideo = isMounted && !isSmallScreen && !prefersReducedMotion;
+  const animate = !isSmallScreen && !prefersReducedMotion;
+  const visibleIndex = animate ? index : 0;
 
-  const youtubeEmbedSrc = useMemo(() => {
-    const params = new URLSearchParams({
-      autoplay: "1",
-      mute: "1",
-      controls: "0",
-      loop: "1",
-      playlist: YOUTUBE_VIDEO_ID,
-      modestbranding: "1",
-      playsinline: "1",
-      rel: "0"
-    });
+  useEffect(() => {
+    if (!animate) return;
 
-    return `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?${params.toString()}`;
-  }, []);
+    const intervalId = window.setInterval(() => {
+      setIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, 5200);
+
+    return () => window.clearInterval(intervalId);
+  }, [animate]);
 
   return (
     <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
-      <Image
-        src={HERO_IMAGES[0]}
-        alt="Monochrome commodity trading visual"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-center"
-      />
+      {HERO_IMAGES.map((src, imageIndex) => {
+        const active = imageIndex === visibleIndex;
 
-      {shouldRenderVideo ? (
-        <iframe
-          title="Liqua teaser video"
-          src={youtubeEmbedSrc}
-          className="absolute inset-0 h-full w-full scale-[1.35]"
-          allow="autoplay; encrypted-media; picture-in-picture"
-          loading="eager"
-        />
-      ) : null}
-
-      <div className="absolute inset-0 bg-black/50" />
+        return (
+          <Image
+            key={src}
+            src={src}
+            alt="Monochrome commodity trading visual"
+            fill
+            priority={imageIndex === 0}
+            sizes="100vw"
+            className={`hero-slide ${active ? "is-active" : ""}`}
+          />
+        );
+      })}
+      <div className="hero-overlay" />
     </div>
   );
 }

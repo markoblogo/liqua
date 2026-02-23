@@ -29,18 +29,14 @@ export function ContactForm() {
   };
 
   return (
-    <div className="rounded-2xl border border-black/15 p-6 sm:p-8">
+    <div className="surface-card section-fade" data-ascii-role="card">
       {submitted ? (
-        <div className="rounded-xl border border-black/20 bg-black/[0.02] p-5">
-          <p className="text-base font-medium text-black">Request received.</p>
-          <p className="mt-2 text-sm text-black/70">
+        <div className="rounded-xl border border-[var(--border-strong)] bg-[var(--surface-soft)] p-5">
+          <p className="text-base font-medium text-[var(--text)]">Request received.</p>
+          <p className="mt-2 text-sm text-[var(--muted)]">
             We will contact you shortly with next steps.
           </p>
-          <button
-            type="button"
-            onClick={() => setSubmitted(false)}
-            className="mt-4 rounded-full border border-black px-4 py-1.5 text-sm font-medium transition hover:bg-black hover:text-white"
-          >
+          <button type="button" onClick={() => setSubmitted(false)} className="button-secondary mt-4">
             Submit another request
           </button>
         </div>
@@ -72,7 +68,7 @@ export function ContactForm() {
               onChange={(value) => setForm((prev) => ({ ...prev, company: value }))}
               required
             />
-            <label className="space-y-1 text-sm font-medium text-black/80" htmlFor="role">
+            <label className="space-y-1 text-sm font-medium text-[var(--muted)]" htmlFor="role">
               Role
               <select
                 id="role"
@@ -80,7 +76,7 @@ export function ContactForm() {
                 onChange={(event) =>
                   setForm((prev) => ({ ...prev, role: event.target.value }))
                 }
-                className="w-full rounded-lg border border-black/20 px-3 py-2 text-sm text-black outline-none transition focus:border-black"
+                className="field-input"
               >
                 <option value="broker">Broker</option>
                 <option value="trader">Trader</option>
@@ -90,7 +86,7 @@ export function ContactForm() {
             </label>
           </div>
 
-          <label className="space-y-1 text-sm font-medium text-black/80" htmlFor="message">
+          <label className="space-y-1 text-sm font-medium text-[var(--muted)]" htmlFor="message">
             Message
             <textarea
               id="message"
@@ -98,15 +94,12 @@ export function ContactForm() {
               onChange={(event) =>
                 setForm((prev) => ({ ...prev, message: event.target.value }))
               }
-              className="min-h-28 w-full rounded-lg border border-black/20 px-3 py-2 text-sm text-black outline-none transition focus:border-black"
+              className="field-input min-h-28"
               placeholder="Tell us your role and what access you need."
             />
           </label>
 
-          <button
-            type="submit"
-            className="rounded-full border border-black bg-black px-5 py-2 text-sm font-medium text-white transition hover:bg-white hover:text-black"
-          >
+          <button type="submit" className="button-primary" data-ascii-role="cta">
             Send request
           </button>
         </form>
@@ -126,7 +119,7 @@ type InputProps = {
 
 function Input({ id, label, type = "text", value, onChange, required }: InputProps) {
   return (
-    <label className="space-y-1 text-sm font-medium text-black/80" htmlFor={id}>
+    <label className="space-y-1 text-sm font-medium text-[var(--muted)]" htmlFor={id}>
       {label}
       <input
         id={id}
@@ -134,7 +127,7 @@ function Input({ id, label, type = "text", value, onChange, required }: InputPro
         value={value}
         required={required}
         onChange={(event) => onChange(event.target.value)}
-        className="w-full rounded-lg border border-black/20 px-3 py-2 text-sm text-black outline-none transition focus:border-black"
+        className="field-input"
       />
     </label>
   );

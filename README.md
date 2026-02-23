@@ -1,6 +1,6 @@
 # Liqua Landing
 
-Minimalist, monochrome landing page for **Liqua** built with Next.js App Router, TypeScript, and Tailwind CSS.
+Premium monochrome landing page for **Liqua** built with Next.js App Router, TypeScript, and Tailwind CSS.
 
 ## Tech Stack
 
@@ -38,9 +38,9 @@ npm start
    - Output: auto-detected
 5. Deploy.
 
-No custom server or special Vercel config is required.
+No custom server or extra Vercel config is required.
 
-## Asset and Link Placeholders
+## Configurable Constants
 
 Edit `lib/constants.ts`:
 
@@ -50,9 +50,26 @@ Edit `lib/constants.ts`:
 - `CONTACT_EMAIL`
 - `HERO_IMAGES`
 
-## Key Assets
+## Theme Modes
 
-- Logo: `public/liqua-logo.png`
-- Optional white logo: `public/liqua-logo-white.png`
-- Deck PDF: `public/deck/liqua-pitch-deck.pdf`
-- Hero images: `public/hero/`
+- Light / Dark / ASCII mode toggle is in the header.
+- Mode is persisted in `localStorage` under `liqua_display_mode`.
+- Root attributes:
+  - `data-mode="light|dark|ascii"`
+  - `data-theme="light|dark"`
+  - `data-style="default|ascii"`
+
+## Assets
+
+- Final logos (used in UI):
+  - `public/logo/liqua-black.svg`
+  - `public/logo/liqua-white.svg`
+- Deck PDF:
+  - `public/deck/liqua-pitch-deck.pdf`
+- Hero slideshow images:
+  - `public/hero/Lhero1.svg`
+  - `public/hero/Lhero2.svg`
+  - `public/hero/Lhero3.svg`
+  - `public/hero/Lhero4.svg`
+  - `public/hero/Lhero5.svg`
+  - `public/hero/Lhero6.svg`
