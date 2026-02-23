@@ -31,7 +31,7 @@ export function NarrativeToggle() {
           </p>
         </div>
 
-        <div className={`surface-card section-fade narrative-block ${data.tone}`} data-ascii-role="card">
+        <div className={`surface-card accent-surface-soft section-fade narrative-block ${data.tone}`} data-ascii-role="card">
           <div className="toggle-pill-group" role="tablist" aria-label="Infrastructure narrative">
             <button type="button" className={`toggle-pill ${active === "liqua" ? "is-active" : ""}`} onClick={() => setActive("liqua")} role="tab" aria-selected={active === "liqua"}>
               Liqua

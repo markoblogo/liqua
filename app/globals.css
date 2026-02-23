@@ -124,8 +124,26 @@ a {
 .hero-text-pane {
   position: relative;
   border-radius: 1.2rem;
-  padding: 0.7rem 0.8rem;
-  background: linear-gradient(120deg, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.08));
+  padding: 0.86rem 0.95rem;
+  background: linear-gradient(115deg, rgba(0, 0, 0, 0.34), rgba(0, 0, 0, 0.14));
+  backdrop-filter: blur(2px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.hero-text-pane::before {
+  content: "";
+  position: absolute;
+  inset: -22% -32% -18% -20%;
+  background:
+    radial-gradient(circle at 32% 38%, rgba(0, 0, 0, 0.35), transparent 60%),
+    radial-gradient(circle at 6% 78%, rgba(0, 0, 0, 0.22), transparent 54%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.hero-text-pane h1,
+.hero-text-pane p {
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.34);
 }
 
 .site-header {
@@ -192,7 +210,7 @@ a {
       color-mix(in srgb, var(--surface) 94%, transparent),
       color-mix(in srgb, var(--surface-soft) 76%, transparent)
     );
-  padding: 1.75rem;
+  padding: 1.65rem;
   box-shadow: var(--shadow-soft);
   transition: transform 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
 }
@@ -229,6 +247,62 @@ a {
   overflow: hidden;
   border: 1px solid var(--border);
   background: color-mix(in srgb, var(--surface-soft) 85%, transparent);
+}
+
+.deck-frame {
+  border-width: 1.5px;
+  padding: 1.15rem;
+  background:
+    linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--surface) 95%, transparent),
+      color-mix(in srgb, var(--surface-soft) 72%, transparent)
+    );
+  box-shadow:
+    var(--shadow-soft),
+    inset 0 0 0 1px color-mix(in srgb, var(--border-strong) 22%, transparent),
+    inset 0 0 24px color-mix(in srgb, var(--tint-a) 22%, transparent);
+}
+
+.button-deck {
+  border-color: color-mix(in srgb, var(--border-strong) 78%, transparent);
+  background: color-mix(in srgb, var(--surface) 86%, var(--surface-soft) 14%);
+  font-weight: 600;
+}
+
+.button-deck:hover {
+  background: var(--text);
+  color: var(--bg);
+}
+
+.accent-surface-strong {
+  background:
+    linear-gradient(
+      142deg,
+      color-mix(in srgb, #151618 92%, var(--surface) 8%),
+      color-mix(in srgb, #222428 86%, var(--surface-soft) 14%)
+    );
+  border-color: color-mix(in srgb, rgba(255, 255, 255, 0.12) 42%, var(--border));
+  color: #f0f0f2;
+}
+
+.accent-surface-strong .meta-label {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.accent-surface-strong .card-title,
+.accent-surface-strong .card-copy {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.accent-surface-soft {
+  background:
+    linear-gradient(
+      138deg,
+      color-mix(in srgb, var(--surface) 93%, transparent),
+      color-mix(in srgb, var(--surface-soft) 78%, transparent)
+    ),
+    radial-gradient(circle at 78% 22%, color-mix(in srgb, var(--tint-b) 28%, transparent), transparent 58%);
 }
 
 .button-primary,
@@ -560,7 +634,8 @@ a {
   inset: 0;
   transform: translate3d(calc(var(--hero-parallax-x) * 0.55), calc(var(--hero-parallax-y) * 0.55), 0);
   background:
-    linear-gradient(180deg, var(--overlay-soft), var(--overlay)),
+    linear-gradient(180deg, color-mix(in srgb, var(--overlay-soft) 86%, #000 14%), color-mix(in srgb, var(--overlay) 88%, #000 12%)),
+    radial-gradient(circle at 24% 46%, rgba(0, 0, 0, 0.36), transparent 54%),
     radial-gradient(circle at 72% 14%, color-mix(in srgb, var(--surface-soft) 24%, transparent), transparent 52%);
 }
 
@@ -649,10 +724,35 @@ a {
   border-color: rgba(255, 255, 255, 0.2);
 }
 
+:root[data-theme="dark"] .accent-surface-strong {
+  background:
+    linear-gradient(142deg, color-mix(in srgb, #f0f0f2 12%, var(--surface) 88%), color-mix(in srgb, #f2f2f4 8%, var(--surface-soft) 92%));
+  border-color: color-mix(in srgb, rgba(255, 255, 255, 0.34) 40%, var(--border));
+}
+
+:root[data-theme="dark"] .accent-surface-strong .meta-label,
+:root[data-theme="dark"] .accent-surface-strong .card-title,
+:root[data-theme="dark"] .accent-surface-strong .card-copy {
+  color: var(--text);
+}
+
 :root[data-style="ascii"] .dark-cta-band {
   background: transparent !important;
   border-color: var(--border-strong);
   box-shadow: none;
+}
+
+:root[data-style="ascii"] .deck-frame,
+:root[data-style="ascii"] .accent-surface-strong,
+:root[data-style="ascii"] .accent-surface-soft {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+:root[data-style="ascii"] .accent-surface-strong .meta-label,
+:root[data-style="ascii"] .accent-surface-strong .card-title,
+:root[data-style="ascii"] .accent-surface-strong .card-copy {
+  color: var(--text) !important;
 }
 
 .mobile-cta-bar {
@@ -751,6 +851,22 @@ a {
 }
 
 @media (max-width: 767px) {
+  .surface-card {
+    padding: 1.3rem;
+  }
+
+  .hero-text-pane {
+    padding: 0.95rem 1rem;
+    background: linear-gradient(112deg, rgba(0, 0, 0, 0.44), rgba(0, 0, 0, 0.2));
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.66)),
+      radial-gradient(circle at 26% 38%, rgba(0, 0, 0, 0.46), transparent 56%),
+      radial-gradient(circle at 72% 14%, color-mix(in srgb, var(--surface-soft) 20%, transparent), transparent 52%);
+  }
+
   .mobile-cta-bar {
     display: flex;
   }

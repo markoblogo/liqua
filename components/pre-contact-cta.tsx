@@ -1,6 +1,6 @@
 export function PreContactCta() {
   return (
-    <section className="section-divider py-20 sm:py-24">
+    <section className="section-divider py-24 sm:py-28">
       <div className="mx-auto w-full max-w-8xl px-6 sm:px-10 lg:px-16">
         <div className="dark-cta-band section-fade" data-ascii-role="card">
           <p className="text-sm font-semibold uppercase tracking-[0.14em] text-white/78">

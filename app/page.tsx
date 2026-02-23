@@ -19,29 +19,24 @@ import { ABVX_URL, ASCII_THEME_URL } from "@/lib/constants";
 
 const faqs = [
   {
-    question: "Is Liqua a marketplace or an exchange?",
+    question: "What is Liqua in one sentence?",
     answer:
-      "Liqua is an execution layer. It structures workflows, controls, and trust signals around physical trade - beyond basic listings."
+      "Liqua is the liquidity and execution layer for physical commodity trading, turning fragmented brokerage activity into structured market infrastructure."
   },
   {
-    question: "How do you reduce off-platform behavior?",
+    question: "Who is Liqua for first?",
     answer:
-      "By making in-platform execution materially better: structured disclosure, milestone control, and trackable performance records."
+      "Initial deployment is corridor-focused with selected brokers, traders, and producers where execution consistency can be measured and scaled."
   },
   {
-    question: "What does the initial rollout look like?",
+    question: "How does Liqua reduce off-platform leakage?",
     answer:
-      "Focused corridor-first deployment, then staged expansion once execution consistency and liquidity depth are proven."
+      "Through staged disclosure, execution workflow value, milestone tooling, and performance ratings that make on-platform completion materially better."
   },
   {
-    question: "How are brokers onboarded?",
+    question: "What is the relationship between Liqua and Cropto?",
     answer:
-      "Verification, workflow training, and tier progression tied to real execution KPIs."
-  },
-  {
-    question: "What happens after I request access?",
-    answer:
-      "We review fit manually and follow up directly for early access and partnership discussions."
+      "Liqua is the liquidity and execution layer, while Cropto adds risk tooling. Together, they form a layered market-infrastructure stack."
   }
 ];
 
@@ -131,7 +126,7 @@ export default function Home() {
                 Preserve local broker intelligence and trust where market outcomes are decided.
               </p>
             </div>
-            <div className="surface-card section-fade" data-ascii-role="card">
+            <div className="surface-card accent-surface-strong section-fade" data-ascii-role="card">
               <p className="meta-label">
                 Execution layer
               </p>
@@ -243,7 +238,14 @@ export default function Home() {
           title="Request Access"
           description="Tell us where you operate and what collaboration path you are exploring."
         >
-          <ContactForm />
+          <div className="space-y-4">
+            <ContactForm />
+            <div className="section-fade rounded-xl border border-[var(--border)] bg-[var(--surface-soft)] px-4 py-3 text-sm leading-relaxed text-[var(--muted)]">
+              <p><strong>For partnerships, pilot corridors, and investor conversations.</strong></p>
+              <p>We reply personally within 1-2 business days.</p>
+              <p>No mailing list spam.</p>
+            </div>
+          </div>
         </Section>
 
         <PartnersSection />

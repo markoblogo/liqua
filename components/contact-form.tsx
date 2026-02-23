@@ -167,10 +167,6 @@ export function ContactForm() {
             </p>
           ) : null}
 
-          <div className="text-sm leading-relaxed text-[var(--muted)]">
-            <p><strong>Early access / partnership conversations.</strong></p>
-            <p>We reply personally. No mailing list spam.</p>
-          </div>
         </div>
       </form>
     </div>

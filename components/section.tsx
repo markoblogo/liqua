@@ -8,8 +8,10 @@ type SectionProps = {
 };
 
 export function Section({ id, title, description, children }: SectionProps) {
+  const relaxedMobileRhythm = id === "faq" || id === "contact" || id === "partners";
+
   return (
-    <section id={id} className="section-divider scroll-mt-28 py-20 sm:py-24">
+    <section id={id} className={`section-divider scroll-mt-28 ${relaxedMobileRhythm ? "py-24 sm:py-28" : "py-20 sm:py-24"}`}>
       <div className="mx-auto w-full max-w-8xl px-6 sm:px-10 lg:px-16">
         <div className="mb-12 max-w-3xl section-fade">
           <h2 className="section-title">{title}</h2>
