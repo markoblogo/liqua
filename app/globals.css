@@ -716,6 +716,33 @@ a {
   box-shadow: 0 24px 48px rgba(0, 0, 0, 0.34);
 }
 
+.precta-label {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.precta-headline {
+  color: rgba(255, 255, 255, 0.98);
+}
+
+.precta-copy {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.precta-proof {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.dark-cta-band .precta-primary-btn {
+  background: #f5f5f5;
+  color: #111111;
+  border-color: rgba(255, 255, 255, 0.82);
+}
+
+.dark-cta-band .precta-primary-btn:hover {
+  background: #ffffff;
+  color: #111111;
+}
+
 :root[data-theme="dark"] .dark-cta-band {
   background:
     radial-gradient(circle at 22% 12%, rgba(87, 129, 78, 0.24), transparent 46%),
@@ -742,8 +769,10 @@ a {
   box-shadow: none;
 }
 
-:root[data-style="ascii"] .dark-cta-band h2,
-:root[data-style="ascii"] .dark-cta-band p {
+:root[data-style="ascii"] .dark-cta-band .precta-label,
+:root[data-style="ascii"] .dark-cta-band .precta-headline,
+:root[data-style="ascii"] .dark-cta-band .precta-copy,
+:root[data-style="ascii"] .dark-cta-band .precta-proof {
   color: var(--text) !important;
   text-shadow: none !important;
 }
@@ -793,6 +822,14 @@ a {
 :root[data-theme="light"] .dark-cta-band h2,
 :root[data-theme="light"] .dark-cta-band p {
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.34);
+}
+
+:root[data-theme="light"] .precta-label {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+:root[data-theme="light"] .precta-proof {
+  color: rgba(255, 255, 255, 0.91);
 }
 
 :root[data-theme="light"] .partner-tile {
