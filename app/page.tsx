@@ -224,7 +224,7 @@ export default function Home() {
         <DeckSection />
 
         <Section id="faq" title="FAQ" description="Concise answers for partner and investor due diligence.">
-          <div className="grid gap-3">
+          <div className="grid gap-4 md:grid-cols-2">
             {faqs.map((faq) => (
               <FAQItem key={faq.question} question={faq.question} answer={faq.answer} />
             ))}
@@ -238,13 +238,11 @@ export default function Home() {
           title="Request Access"
           description="Tell us where you operate and what collaboration path you are exploring."
         >
-          <div className="space-y-4">
+          <div className="space-y-3">
             <ContactForm />
-            <div className="section-fade rounded-xl border border-[var(--border)] bg-[var(--surface-soft)] px-4 py-3 text-sm leading-relaxed text-[var(--muted)]">
-              <p><strong>For partnerships, pilot corridors, and investor conversations.</strong></p>
-              <p>We reply personally within 1-2 business days.</p>
-              <p>No mailing list spam.</p>
-            </div>
+            <p className="section-fade text-sm leading-relaxed text-[var(--muted)]">
+              For partnerships, pilot corridors, and investor conversations. We reply personally within 1-2 business days. No mailing list spam.
+            </p>
           </div>
         </Section>
 

@@ -710,9 +710,9 @@ a {
   border: 1px solid color-mix(in srgb, #fff 18%, transparent);
   padding: 2rem;
   background:
-    radial-gradient(circle at 22% 12%, rgba(87, 129, 78, 0.26), transparent 46%),
-    radial-gradient(circle at 84% 8%, rgba(170, 146, 88, 0.2), transparent 44%),
-    linear-gradient(135deg, #121316, #0f1012 55%, #131416);
+    radial-gradient(circle at 22% 12%, rgba(87, 129, 78, 0.22), transparent 46%),
+    radial-gradient(circle at 84% 8%, rgba(170, 146, 88, 0.16), transparent 44%),
+    linear-gradient(135deg, #0d0f12, #0b0d10 55%, #111316);
   box-shadow: 0 24px 48px rgba(0, 0, 0, 0.34);
 }
 
@@ -774,6 +774,28 @@ a {
 .mobile-cta-bar.is-hidden {
   opacity: 0;
   pointer-events: none;
+}
+
+:root[data-theme="light"] .dark-cta-band {
+  background:
+    radial-gradient(circle at 22% 12%, rgba(87, 129, 78, 0.2), transparent 46%),
+    radial-gradient(circle at 84% 8%, rgba(170, 146, 88, 0.16), transparent 44%),
+    linear-gradient(135deg, #0c0e11, #090b0d 54%, #101317);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+:root[data-theme="light"] .dark-cta-band h2,
+:root[data-theme="light"] .dark-cta-band p {
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.34);
+}
+
+:root[data-theme="light"] .partner-tile {
+  background: linear-gradient(
+      140deg,
+      color-mix(in srgb, #ececec 84%, var(--surface) 16%),
+      color-mix(in srgb, #e3e3e3 78%, var(--surface-soft) 22%)
+    );
+  border-color: rgba(0, 0, 0, 0.18);
 }
 
 .section-fade {
