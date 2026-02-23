@@ -742,6 +742,12 @@ a {
   box-shadow: none;
 }
 
+:root[data-style="ascii"] .dark-cta-band h2,
+:root[data-style="ascii"] .dark-cta-band p {
+  color: var(--text) !important;
+  text-shadow: none !important;
+}
+
 :root[data-style="ascii"] .deck-frame,
 :root[data-style="ascii"] .accent-surface-strong,
 :root[data-style="ascii"] .accent-surface-soft {
