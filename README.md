@@ -50,12 +50,14 @@ Edit `lib/constants.ts`:
 - `CONTACT_EMAIL`
 - `HERO_IMAGES`
 
-## Theme Modes
+## Theme and ASCII Controls
 
-- Light / Dark / ASCII mode toggle is in the header.
-- Mode is persisted in `localStorage` under `liqua_display_mode`.
+- Two controls in header:
+  - circular `moon/sun` toggle for **light/dark**
+  - `ASCII/Default` toggle for style mode
+- In ASCII mode, light/dark tone is preserved and switchable.
+- State is persisted in `localStorage` under `liqua_display_mode`.
 - Root attributes:
-  - `data-mode="light|dark|ascii"`
   - `data-theme="light|dark"`
   - `data-style="default|ascii"`
 

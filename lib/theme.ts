@@ -1,32 +1,51 @@
 export const THEME_STORAGE_KEY = "liqua_display_mode";
 
-export type DisplayMode = "light" | "dark" | "ascii";
+export type ThemeTone = "light" | "dark";
+export type ThemeStyle = "default" | "ascii";
 
-export const DISPLAY_MODES: DisplayMode[] = ["light", "dark", "ascii"];
+export type DisplayState = {
+  theme: ThemeTone;
+  style: ThemeStyle;
+};
+
+function applyState(rootVar: string): string {
+  return `
+    const apply = (state) => {
+      const root = ${rootVar};
+      root.dataset.theme = state.theme;
+      root.dataset.style = state.style;
+      if (state.theme === "dark") root.classList.add("dark");
+      else root.classList.remove("dark");
+    };`;
+}
 
 export function getThemeInitScript(): string {
   return `(() => {
     const root = document.documentElement;
     const key = "${THEME_STORAGE_KEY}";
-    const valid = new Set(["light", "dark", "ascii"]);
-    const saved = localStorage.getItem(key);
     const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const mode = valid.has(saved) ? saved : (systemDark ? "dark" : "light");
+    const fallback = { theme: systemDark ? "dark" : "light", style: "default" };
+    let next = fallback;
 
-    const apply = (nextMode) => {
-      root.dataset.mode = nextMode;
-      if (nextMode === "ascii") {
-        root.dataset.theme = "dark";
-        root.dataset.style = "ascii";
-        root.classList.add("dark");
-      } else {
-        root.dataset.theme = nextMode;
-        root.dataset.style = "default";
-        if (nextMode === "dark") root.classList.add("dark");
-        else root.classList.remove("dark");
+    try {
+      const raw = localStorage.getItem(key);
+      if (raw) {
+        if (raw === "light" || raw === "dark") {
+          next = { theme: raw, style: "default" };
+        } else if (raw === "ascii") {
+          next = { theme: systemDark ? "dark" : "light", style: "ascii" };
+        } else {
+          const parsed = JSON.parse(raw);
+          const theme = parsed?.theme === "dark" ? "dark" : "light";
+          const style = parsed?.style === "ascii" ? "ascii" : "default";
+          next = { theme, style };
+        }
       }
-    };
+    } catch {
+      next = fallback;
+    }
 
-    apply(mode);
+    ${applyState("root")}
+    apply(next);
   })();`;
 }
