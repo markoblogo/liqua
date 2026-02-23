@@ -5,8 +5,10 @@ import { DeckSection } from "@/components/deck-section";
 import { FAQItem } from "@/components/faq-item";
 import { Header } from "@/components/header";
 import { HeroMedia } from "@/components/hero-media";
+import { MarketValueModel } from "@/components/market-value-model";
 import { MobileStickyCta } from "@/components/mobile-sticky-cta";
 import { NarrativeToggle } from "@/components/narrative-toggle";
+import { PreContactCta } from "@/components/pre-contact-cta";
 import { Section } from "@/components/section";
 import { ThemedLogo } from "@/components/themed-logo";
 import { TrustStrip } from "@/components/trust-strip";
@@ -17,29 +19,31 @@ const faqs = [
   {
     question: "Is Liqua a marketplace or an exchange?",
     answer:
-      "Neither in the simple listing sense. Liqua is an execution infrastructure layer: structured workflows, controls, and liquidity coordination across trusted participants."
+      "Liqua is an execution layer. It structures workflows, controls, and trust signals around physical trade - beyond basic listings."
   },
   {
     question: "How do you reduce off-platform behavior?",
     answer:
-      "By making in-platform execution more valuable: staged disclosure, operational tooling, and reputation signals tied to real performance outcomes."
+      "By making in-platform execution materially better: structured disclosure, milestone control, and trackable performance records."
   },
   {
-    question: "Where does initial rollout start?",
+    question: "What does the initial rollout look like?",
     answer:
-      "Rollout begins with a focused corridor and participant set, then scales corridor-by-corridor as execution quality and depth metrics are validated."
+      "Focused corridor-first deployment, then staged expansion once execution consistency and liquidity depth are proven."
   },
   {
     question: "How are brokers onboarded?",
     answer:
-      "Through verification, practical workflow training, and ongoing tiering based on measurable execution KPIs."
+      "Verification, workflow training, and tier progression tied to real execution KPIs."
   },
   {
-    question: "What does a partner conversation usually cover?",
+    question: "What happens after I request access?",
     answer:
-      "Operating model fit, corridor priorities, implementation sequencing, and partnership structure for early network expansion."
+      "We review fit manually and follow up directly for early access and partnership discussions."
   }
 ];
+
+const HERO_CHIPS = ["Broker network", "Execution layer", "Partner-ready", "Physical markets first"] as const;
 
 export default function Home() {
   return (
@@ -53,31 +57,38 @@ export default function Home() {
 
           <div className="relative mx-auto w-full max-w-8xl px-6 pb-24 pt-20 sm:px-10 sm:pb-28 sm:pt-24 lg:px-16 lg:pb-32 lg:pt-28">
             <div className="grid items-center gap-12 lg:grid-cols-[1fr_320px] lg:gap-16">
-              <div className="max-w-3xl text-white section-fade">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/75">
-                  Digital Brokerage Platform
+              <div className="max-w-3xl text-white section-fade hero-text-pane">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/76">
+                  Liquidity & Execution Layer
                 </p>
                 <h1 className="mt-5 text-4xl font-semibold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-                  Liqua - Liquidity & Execution Layer for Physical Commodity Trading
+                  Liqua builds structured market liquidity for physical commodity trading
                 </h1>
                 <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/88 sm:text-xl">
-                  Liqua converts fragmented relationships into <strong>structured,
-                  reliable market liquidity</strong>.
+                  Brokers stay focused on relationships, trust, and negotiation.
+                  Liqua handles execution workflow, process control, and operational consistency -
+                  turning fragmented brokerage activity into scalable market infrastructure.
                 </p>
-                <p className="mt-5 text-sm font-medium uppercase tracking-[0.12em] text-white/72">
-                  Brokers keep trust and negotiation. The platform runs execution discipline.
-                </p>
+
                 <div className="mt-9 flex flex-wrap gap-3">
-                  <a href="#deck" className="button-primary cta-shine" data-ascii-role="cta">
-                    View deck <span className="cta-arrow">→</span>
-                  </a>
-                  <a href="#contact" className="button-secondary cta-shine" data-ascii-role="cta-secondary">
+                  <a href="#contact" className="button-primary cta-shine" data-ascii-role="cta">
                     Request access <span className="cta-arrow">→</span>
                   </a>
+                  <a href="#deck" className="button-secondary cta-shine" data-ascii-role="cta-secondary">
+                    View deck <span className="cta-arrow">→</span>
+                  </a>
                 </div>
+
+                <ul className="mt-5 flex flex-wrap gap-2" aria-label="Positioning highlights">
+                  {HERO_CHIPS.map((chip) => (
+                    <li key={chip} className="hero-proof-chip">
+                      {chip}
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              <div className="hero-logo-float section-fade mx-auto flex w-full max-w-72 justify-center rounded-3xl border border-white/30 bg-white/10 p-10 backdrop-blur-[2px] sm:max-w-80">
+              <div className="hero-logo-float section-fade mx-auto flex w-full max-w-72 justify-center rounded-3xl border border-white/36 bg-white/14 p-10 backdrop-blur-[3px] sm:max-w-80">
                 <ThemedLogo width={240} height={300} className="h-auto w-full" />
               </div>
             </div>
@@ -87,14 +98,14 @@ export default function Home() {
         <Section
           id="problem"
           title="Market Problem"
-          description="Physical commodity execution is still relationship-heavy but operations-light, creating friction exactly where reliability should exist."
+          description="Fragmented coverage and manual coordination keep physical-market execution expensive and inconsistent."
         >
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              "Fragmented broker landscape and uneven process quality",
-              "High manual load in contracts, documents, and follow-up",
-              "Low visibility across milestones and accountability",
-              "Depth exists in the market, but not in a usable structure"
+              "Broker access is distributed but not operationally unified",
+              "Contract and document operations consume core commercial time",
+              "Execution responsibility is hard to track across counterparties",
+              "Depth exists in the market but not in a decision-grade structure"
             ].map((item) => (
               <div key={item} className="surface-card text-sm text-[var(--muted)] section-fade" data-ascii-role="card">
                 {item}
@@ -106,33 +117,33 @@ export default function Home() {
         <Section
           id="solution"
           title="Product Thesis"
-          description="Liqua separates commercial relationships from process execution and makes both stronger."
+          description="Brokers create trust. Liqua creates repeatability."
         >
           <div className="grid gap-6 lg:grid-cols-2">
             <div className="surface-card section-fade" data-ascii-role="card">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">
-                Human layer
+                Commercial layer
               </p>
-              <p className="mt-3 text-2xl font-semibold">Broker = trust, context, negotiation</p>
+              <p className="mt-3 text-2xl font-semibold">Relationships, context, and negotiation</p>
               <p className="mt-4 text-sm leading-relaxed text-[var(--muted)]">
-                Preserve local relationships and commercial intelligence where they matter most.
+                Preserve local broker intelligence and trust where market outcomes are decided.
               </p>
             </div>
             <div className="surface-card section-fade" data-ascii-role="card">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">
-                System layer
+                Execution layer
               </p>
-              <p className="mt-3 text-2xl font-semibold">Platform = workflow, control, traceability</p>
+              <p className="mt-3 text-2xl font-semibold">Workflow discipline, controls, and traceability</p>
               <p className="mt-4 text-sm leading-relaxed text-[var(--muted)]">
-                Standardize execution with shared checkpoints, discipline, and measurable outcomes.
+                Standardized milestones and accountability turn fragmented activity into infrastructure.
               </p>
             </div>
           </div>
         </Section>
 
-        <TrustStrip />
-
         <BeforeAfterToggle />
+
+        <TrustStrip />
 
         <VideoSection />
 
@@ -140,62 +151,40 @@ export default function Home() {
           <div className="mx-auto w-full max-w-8xl px-6 sm:px-10 lg:px-16">
             <div className="grid gap-6 lg:grid-cols-3">
               <div id="brokers" className="scroll-mt-28">
-                <ValueCard title="For Brokers" hero="Stay in your strength. Let the system run the routine.">
-                  <p><strong>Keep:</strong> client trust, negotiation, and strategic advisory.</p>
-                  <p><strong>Offload:</strong> documentation, tracking, and execution coordination.</p>
-                  <p><strong>Upgrade:</strong> coaching, market intelligence, and control tooling.</p>
+                <ValueCard title="For Brokers" hero="Execution support without losing relationship ownership.">
+                  <p><strong>Keep:</strong> trust, negotiation, and advisory positioning.</p>
+                  <p><strong>Systematize:</strong> documentation, follow-up, and workflow control.</p>
+                  <p><strong>Improve:</strong> capability through training, coaching, and market intelligence.</p>
                 </ValueCard>
               </div>
 
               <div id="traders" className="scroll-mt-28">
-                <ValueCard title="For Traders" hero="Permanent liquidity access without headcount inflation.">
-                  <p><strong>Expand coverage</strong> through broker-networked regional channels.</p>
-                  <p><strong>Reduce fixed procurement overhead</strong> with flexible market access.</p>
-                  <p><strong>Operate on better signals:</strong> depth, behavior, and execution reliability.</p>
+                <ValueCard title="For Traders" hero="Scale coverage without scaling fixed overhead.">
+                  <p><strong>Access:</strong> broker-networked regional liquidity.</p>
+                  <p><strong>Expand:</strong> procurement reach without internal team inflation.</p>
+                  <p><strong>Decide faster:</strong> with depth signals and execution visibility.</p>
                 </ValueCard>
               </div>
 
               <div id="farmers" className="scroll-mt-28">
-                <ValueCard title="For Farmers" hero="Loyalty exchanged for professional commercial support.">
-                  <p><strong>Receive:</strong> timing support, advisory, and buyer-quality filtering.</p>
-                  <p><strong>Trade through trusted local brokers</strong> with stronger process protection.</p>
-                  <p><strong>Monetize more consistently</strong> via structured execution pathways.</p>
+                <ValueCard title="For Farmers" hero="Professional commercial support through trusted channels.">
+                  <p><strong>Benefit:</strong> from local advisory quality and better timing context.</p>
+                  <p><strong>Trade safer:</strong> with clearer process checkpoints and buyer selection discipline.</p>
+                  <p><strong>Monetize consistently:</strong> via structured execution rather than ad-hoc routes.</p>
                 </ValueCard>
               </div>
             </div>
           </div>
         </section>
 
-        <NarrativeToggle />
-
-        <Section
-          id="triangle"
-          title="Organic Value Exchange Triangle"
-          description="Farmer loyalty, broker competence, and trader demand become scalable when stabilized by a common execution framework."
-        >
-          <div className="surface-card section-fade" data-ascii-role="card">
-            <div className="mx-auto grid max-w-3xl grid-cols-1 items-center justify-items-center gap-6 sm:grid-cols-3">
-              <span className="diagram-node">Farmer</span>
-              <span className="text-sm text-[var(--muted)]">→</span>
-              <span className="diagram-node">Broker</span>
-              <span className="hidden text-sm text-[var(--muted)] sm:block">↘</span>
-              <span className="diagram-node">Platform</span>
-              <span className="hidden text-sm text-[var(--muted)] sm:block">↙</span>
-              <span className="diagram-node">Trader</span>
-            </div>
-            <p className="mt-6 text-center text-sm text-[var(--muted)]">
-              Liqua is the stabilizing layer that converts bilateral dependencies into
-              repeatable, transparent market infrastructure.
-            </p>
-          </div>
-        </Section>
+        <MarketValueModel />
 
         <DealFlow />
 
         <Section
           id="how-it-works"
           title="How It Works"
-          description="A five-stage operating path that turns scattered interactions into dependable deal completion."
+          description="Operational consistency creates market depth."
         >
           <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {[
@@ -215,7 +204,7 @@ export default function Home() {
           </ol>
         </Section>
 
-        <Section id="features" title="Core Platform Modules" description="Built for partner-scale execution quality, not only deal discovery.">
+        <Section id="features" title="Core Platform Modules" description="Execution quality, surfaced as product modules.">
           <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
               "Verified broker network",
@@ -233,9 +222,11 @@ export default function Home() {
           </ul>
         </Section>
 
+        <NarrativeToggle />
+
         <DeckSection />
 
-        <Section id="faq" title="FAQ" description="Short answers for partner and investor due-diligence conversations.">
+        <Section id="faq" title="FAQ" description="Concise answers for partner and investor due diligence.">
           <div className="grid gap-3">
             {faqs.map((faq) => (
               <FAQItem key={faq.question} question={faq.question} answer={faq.answer} />
@@ -243,10 +234,12 @@ export default function Home() {
           </div>
         </Section>
 
+        <PreContactCta />
+
         <Section
           id="contact"
           title="Request Access"
-          description="Share your profile and goals. We prioritize early conversations with aligned partners and strategic participants."
+          description="Tell us where you operate and what collaboration path you are exploring."
         >
           <ContactForm />
         </Section>
@@ -254,7 +247,7 @@ export default function Home() {
 
       <footer className="section-divider py-10">
         <div className="mx-auto flex w-full max-w-8xl flex-col items-start justify-between gap-4 px-6 text-sm text-[var(--muted)] sm:flex-row sm:items-center sm:px-10 lg:px-16">
-          <p>Liqua builds execution-grade liquidity infrastructure for physical commodity markets.</p>
+          <p>Structured liquidity, not just contacts.</p>
           <div className="flex items-center gap-5">
             <a href="/privacy" className="hover:text-[var(--text)]">Privacy</a>
             <a href="/terms" className="hover:text-[var(--text)]">Terms</a>

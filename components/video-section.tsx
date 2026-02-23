@@ -9,7 +9,7 @@ export function VideoSection() {
         <div className="mb-12 max-w-3xl section-fade">
           <h2 className="section-title">Liqua Mood Teaser</h2>
           <p className="section-copy">
-            Visual direction of the liquidity layer for physical commodity trading.
+            Visual direction of execution-grade liquidity infrastructure.
           </p>
         </div>
 

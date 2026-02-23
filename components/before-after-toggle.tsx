@@ -8,34 +8,34 @@ type Phase = "before" | "after";
 const CONTENT: Record<Audience, { title: string; subtitle: string; before: string[]; after: string[] }> = {
   broker: {
     title: "Broker",
-    subtitle: "Convert operational drag into advisory capacity.",
+    subtitle: "Execution quality as a product feature for advisory businesses.",
     before: [
-      "Contract admin and paperwork overload",
-      "Manual execution follow-ups across channels",
-      "Fragmented communication and document chasing",
-      "Limited time for strategy and client advisory"
+      "Paperwork and contract admin overload",
+      "Manual execution follow-up",
+      "Scattered communication and document chasing",
+      "Too little room for strategy and advisory growth"
     ],
     after: [
       "Focus on relationships, negotiation, and trust",
-      "Execution support through standardized workflow",
-      "Checklist control, visibility, and auditability",
-      "Growth via training, coaching, and market intelligence"
+      "Standardized execution support via platform",
+      "Better visibility, checklists, and deal control",
+      "Growth through training, coaching, and market intelligence"
     ]
   },
   trader: {
     title: "Trader",
-    subtitle: "Scale procurement through networked liquidity.",
+    subtitle: "From fragmented coverage to a procurement network.",
     before: [
-      "Procurement capacity tied to internal headcount",
-      "Uneven regional coverage and high fixed cost",
-      "Limited view of true physical market depth",
-      "Recurring supply gaps reduce execution certainty"
+      "Procurement depends on internal headcount",
+      "Regional coverage is expensive and uneven",
+      "Limited visibility into true market depth",
+      "Cyclic supply gaps disrupt execution"
     ],
     after: [
-      "Access networked regional liquidity channels",
-      "Expand procurement scale without fixed overhead growth",
-      "Structured depth and behavioral market signals",
-      "More reliable execution through shared process"
+      "Access networked regional liquidity",
+      "Scale procurement without fixed overhead expansion",
+      "Structured depth and behavioral signals",
+      "More reliable execution through standardized process"
     ]
   }
 };
@@ -51,9 +51,9 @@ export function BeforeAfterToggle() {
     <section id="transformation" className="section-divider scroll-mt-28 py-20 sm:py-24">
       <div className="mx-auto w-full max-w-8xl px-6 sm:px-10 lg:px-16">
         <div className="mb-10 max-w-3xl section-fade">
-          <h2 className="section-title">Operational Transformation Snapshot</h2>
+          <h2 className="section-title">Before / With Liqua</h2>
           <p className="section-copy">
-            A concise before-and-after view of the leverage Liqua creates for execution partners.
+            Structured liquidity, not just contacts.
           </p>
         </div>
 

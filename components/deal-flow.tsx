@@ -39,7 +39,7 @@ export function DealFlow() {
         <div className="mb-10 max-w-3xl section-fade">
           <h2 className="section-title">Deal Infrastructure Flow</h2>
           <p className="section-copy">
-            A compact execution path that turns fragmented contacts into a repeatable operating cycle.
+            From brokerage activity to market infrastructure.
           </p>
         </div>
 

@@ -7,12 +7,12 @@ type Narrative = "liqua" | "cropto";
 const NARRATIVE_COPY: Record<Narrative, { title: string; body: string; tone: string }> = {
   liqua: {
     title: "Liqua — Liquidity Layer",
-    body: "Liqua structures execution in physical commodity trade: verified participants, standardized workflows, and measurable performance loops.",
+    body: "Liqua structures execution and liquidity access in physical trade: verified participants, standardized workflows, and repeatable operational quality.",
     tone: "tone-liqua"
   },
   cropto: {
     title: "Cropto — Risk Layer",
-    body: "Cropto extends the stack with practical risk tooling and hedging support, designed to complement Liqua’s execution infrastructure.",
+    body: "Cropto extends the stack with practical risk tooling and hedging support, complementing Liqua’s execution layer without changing core operating discipline.",
     tone: "tone-cropto"
   }
 };
@@ -25,9 +25,9 @@ export function NarrativeToggle() {
     <section id="infrastructure" className="section-divider scroll-mt-28 py-20 sm:py-24">
       <div className="mx-auto w-full max-w-8xl px-6 sm:px-10 lg:px-16">
         <div className="mb-10 max-w-3xl section-fade">
-          <h2 className="section-title">Layered Market Infrastructure</h2>
+          <h2 className="section-title">Modern Market Infrastructure Stack</h2>
           <p className="section-copy">
-            Two connected product layers for partners building modern physical-market operating systems.
+            Liquidity layer first, risk layer next.
           </p>
         </div>
 
