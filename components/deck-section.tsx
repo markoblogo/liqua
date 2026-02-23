@@ -7,7 +7,8 @@ export function DeckSection() {
         <div className="mb-12 max-w-3xl section-fade">
           <h2 className="section-title">Project Deck</h2>
           <p className="section-copy">
-            Investor and partner presentation with detailed Liqua model and rollout thesis.
+            The deck outlines Liqua’s market thesis, operating model, rollout sequencing,
+            and partnership logic for corridor expansion.
           </p>
         </div>
 
@@ -24,8 +25,8 @@ export function DeckSection() {
           </div>
 
           <div className="mt-5 flex justify-end">
-            <a href={PDF_URL} download className="button-secondary">
-              Download PDF
+            <a href={PDF_URL} download className="button-secondary cta-shine">
+              Download PDF <span className="cta-arrow">→</span>
             </a>
           </div>
         </div>

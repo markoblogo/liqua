@@ -1,4 +1,5 @@
 export const SITE_NAME = "Liqua";
+export const SITE_URL = "https://liqua.abvx.xyz";
 export const SITE_TITLE = "Liqua — Liquidity Layer for Physical Commodity Trading";
 export const SITE_DESCRIPTION =
   "Liqua is a digital brokerage platform that turns fragmented physical commodity relationships into structured, reliable liquidity.";

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { HERO_IMAGES } from "@/lib/constants";
 
@@ -8,6 +8,7 @@ const MOBILE_QUERY = "(max-width: 767px)";
 const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
 
 export function HeroMedia() {
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [index, setIndex] = useState(0);
@@ -32,6 +33,7 @@ export function HeroMedia() {
   }, []);
 
   const animate = !isSmallScreen && !prefersReducedMotion;
+  const parallaxEnabled = !isSmallScreen && !prefersReducedMotion;
   const visibleIndex = animate ? index : 0;
 
   useEffect(() => {
@@ -44,8 +46,27 @@ export function HeroMedia() {
     return () => window.clearInterval(intervalId);
   }, [animate]);
 
+  useEffect(() => {
+    if (!parallaxEnabled || !containerRef.current) {
+      containerRef.current?.style.setProperty("--hero-parallax-x", "0px");
+      containerRef.current?.style.setProperty("--hero-parallax-y", "0px");
+      return;
+    }
+
+    const node = containerRef.current;
+    const onMove = (event: MouseEvent) => {
+      const x = ((event.clientX / window.innerWidth) - 0.5) * 4;
+      const y = ((event.clientY / window.innerHeight) - 0.5) * 4;
+      node.style.setProperty("--hero-parallax-x", `${x.toFixed(2)}px`);
+      node.style.setProperty("--hero-parallax-y", `${y.toFixed(2)}px`);
+    };
+
+    window.addEventListener("mousemove", onMove, { passive: true });
+    return () => window.removeEventListener("mousemove", onMove);
+  }, [parallaxEnabled]);
+
   return (
-    <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+    <div ref={containerRef} className="absolute inset-0 overflow-hidden" aria-hidden="true">
       {HERO_IMAGES.map((src, imageIndex) => {
         const active = imageIndex === visibleIndex;
 

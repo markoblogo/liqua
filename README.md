@@ -7,7 +7,7 @@ Premium monochrome landing page for **Liqua** built with Next.js App Router, Typ
 - Next.js (App Router)
 - TypeScript
 - Tailwind CSS
-- Frontend-only contact form (no backend, no DB)
+- Resend (server-side form email delivery)
 
 ## Local Development
 
@@ -35,10 +35,19 @@ npm start
    - Framework preset: **Next.js**
    - Build command: `npm run build`
    - Install command: `npm install`
-   - Output: auto-detected
-5. Deploy.
+5. Add environment variables in Vercel:
+   - `RESEND_API_KEY`
+   - `CONTACT_TO_EMAIL` (optional, default: `a.biletskiy@gmail.com`)
+6. Deploy.
 
-No custom server or extra Vercel config is required.
+## Request Access Form Delivery
+
+- Frontend submits to `POST /api/request-access`
+- Route file: `app/api/request-access/route.ts`
+- Provider: Resend
+- Subject format: `Liqua — Request Access`
+- Email includes: name, company, email, role, message, timestamp, source domain
+- Lightweight anti-spam: honeypot field + submission timing guard
 
 ## Configurable Constants
 
@@ -53,8 +62,8 @@ Edit `lib/constants.ts`:
 ## Theme and ASCII Controls
 
 - Two controls in header:
-  - circular `moon/sun` toggle for **light/dark**
-  - `ASCII/Default` toggle for style mode
+  - circular `moon/sun` toggle for **light/dark** tone
+  - `ASCII/Default` style toggle
 - In ASCII mode, light/dark tone is preserved and switchable.
 - State is persisted in `localStorage` under `liqua_display_mode`.
 - Root attributes:
